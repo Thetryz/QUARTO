@@ -1,0 +1,40 @@
+project:
+  type: website
+
+execute: 
+  freeze: auto
+  
+
+website:
+  title: "Python"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+      - href: cours.qmd
+        text: Cours
+      - href: example.html
+        text: Exercices
+      - href: contact.qmd
+        text: Contact
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: cyborg 
+    css: styles.css
+    toc: true
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+

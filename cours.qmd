@@ -1,0 +1,291 @@
+---
+title: "COURS"
+---
+# Chapitre 1: PANDAS ET NUMPY
+
+## 1-Introduction: MODULES SUR PYTHON
+
+### 1.1-Qu'est-ce qu'un module sur Python?
+
+
+
+
+Dans l'exemple ci-dessus, mymoduleest un module contenant une seule fonction hello().
+Ce module est importé main.py et sa fonction est appelée pour imprimer "Hello, World!".
+
+Python est livré avec une bibliothèque standard de modules qui fournissent diverses fonctionnalités telles que math les opérations mathématiques, os les fonctions liées 
+au système d'exploitation et sys les paramètres et fonctions spécifiques au système.
+
+Pour en savoir plus sur les modules Python, vous pouvez vous référer à la documentation officielle Python : [Ref](https://docs.python.org/3/tutorial/modules.html)
+
+
+### 1.2-Pourquoi utiliser Pandas sur Python?
+
+La bibliothèque pandas de Python est un outil puissant pour manipuler des données structurées. Elle offre deux structures de données principales, les séries et les dataframes, qui sont hautement optimisées pour la performance et fournissent de nombreuses méthodes pour la manipulation et l'analyse des données. 
+
+Pandas permet également de nettoyer les données en proposant des fonctions pour traiter les valeurs manquantes, filtrer, trier et fusionner les données. Il fournit également des fonctions pour l'analyse des données, y compris le regroupement, l'agrégation et la transformation des données, ainsi que l'analyse des séries temporelles.
+
+De plus, pandas offre des fonctions de traçage de base pour visualiser les données, qui sont compatibles avec Matplotlib. Enfin, pandas s'intègre bien avec d'autres bibliothèques, ce qui permet de créer des workflows de traitement de données plus complexes et personnalisés.
+
+### 1.3-Pourquoi utiliser Numpy sur Python?
+
+La bibliothèque NumPy de Python est un outil puissant pour manipuler des données numériques. Elle offre une structure de données principale, le tableau, qui est hautement optimisée pour la performance et fournit de nombreuses méthodes pour la manipulation et l'analyse des données numériques.
+
+De plus, NumPy permet également de réaliser des opérations mathématiques et statistiques avancées sur les données, ce qui en fait un outil populaire pour le calcul scientifique et l'analyse de données. 
+
+De même que pour Pandas, NumPy s'intègre bien avec d'autres bibliothèques, ce qui permet de créer des workflows de traitement de données plus complexes et personnalisés.   
+
+## 2-Les Fondamentaux de Pandas
+
+### 2.1-Creation de DataFrame
+
+Pour créer un DataFrame avec le module Pandas de Python, vous pouvez utiliser la fonction `DataFrame()` et lui fournir des données sous forme de dictionnaire ou de liste de listes. Voici un exemple de création d'un DataFrame à partir d'un dictionnaire :
+
+```{.python}
+import pandas as pd
+
+data = {
+    'nom': ['Jean', 'Pierre', 'Michel'],
+    'age': [25, 30, 35],
+    'ville': ['Paris', 'Lyon', 'Marseille']
+}
+
+df = pd.DataFrame(data)
+print(df)
+```
+  
+Vous pouvez également créer un DataFrame à partir d'une liste de listes en spécifiant les noms des colonnes avec l'argument `columns`:
+
+```{.python}
+import pandas as pd
+
+data = [
+    ['Jean', 25, 'Paris'],
+    ['Pierre', 30, 'Lyon'],
+    ['Michel', 35, 'Marseille']
+]
+
+df = pd.DataFrame(data, columns=['nom', 'age', 'ville'])
+print(df)
+```
+### 2.2 Index
+
+Chaque ligne et chaque colonne d'un DataFrame a un index unique. Par défaut, l'index d'un DataFrame est une séquence numérique commençant à 0. Cependant, vous pouvez définir un index personnalisé pour un DataFrame en utilisant la méthode set_index().
+
+Voici un exemple de définition d'un index personnalisé pour un DataFrame :
+
+```{.python}
+import pandas as pd
+
+data = {
+    'Nom': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+
+df = pd.DataFrame(data)
+
+
+df.set_index('Nom', inplace=True)
+
+print(df)
+```
+### 2.3 Sélection de données
+
+Vous pouvez sélectionner des données dans un DataFrame en utilisant des index, des noms de colonnes ou des masques booléens.
+
+Voici un exemple de sélection de données en utilisant des index :
+
+```{.python}
+import pandas as pd
+
+data = {
+    'Nom': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+
+df = pd.DataFrame(data)
+
+
+df.set_index('Nom', inplace=True)
+
+print(df.loc['Anna'])
+```
+Voici un exemple de sélection de données en utilisant des noms de colonnes :
+
+```{.python}
+import pandas as pd
+
+data = {
+    'Nom': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+df = pd.DataFrame(data)
+
+print(df['Age'])
+```
+
+Voici un exemple de sélection de données en utilisant des masques booléens :
+
+```{.python}
+import pandas as pd
+
+data = {
+    'Nom': ['John','Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+df = pd.DataFrame(data)
+
+mask = df['Age'] > 30
+
+print(df[mask])
+```
+
+### 2.4 Manipulation de données
+
+Pandas fournit des outils pour la manipulation de données, tels que la fusion, le filtrage, l'agrégation et la transformation de données.
+
+Voici un exemple de fusion de deux DataFrames :
+
+```{.python}
+
+import pandas as pd
+
+data1 = {
+    'Nom': ['John', 'Anna', 'Peter'],
+    'Age': [28, 24, 35]
+}
+
+df1 = pd.DataFrame(data1)
+
+data2 = {
+    'Nom': ['Peter', 'Linda'],
+    'Ville': ['Berlin', 'Londres']
+}
+df2 = pd.DataFrame(data2)
+
+merged_df = pd.merge(df1, df2, on='Nom')
+
+print(merged_df)
+```
+Voici un exemple de filtrage de données en utilisant des conditions :
+
+```{.python}
+import pandas as pd
+
+
+data = {
+    'Nom': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+df = pd.DataFrame(data)
+
+filtered_df = df[df['Age'] > 30]
+
+print(filtered_df)
+```
+
+Voici un exemple d'agrégation de données en utilisant des fonctions d'agrégation :
+
+```{.python}
+
+import pandas as pd
+
+data = {
+    'Nom': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+df = pd.DataFrame(data)
+mean_age = df['Age'].mean()
+num_rows = df.shape[0]
+
+print('Mean age:', mean_age)
+print('Number of rows:', num_rows)
+```
+Voici un exemple de transformation de données en utilisant des fonctions de transformation :
+
+```{.python}
+import pandas as pd
+
+data = {
+    'Nom': ['John', 'Anna', 'Peter', 'Linda'],
+    'Age': [28, 24, 35, 32],
+    'Ville': ['New York', 'Paris', 'Berlin', 'Londres']
+}
+
+df = pd.DataFrame(data)
+df['Uppercase Name'] = df['Name'].str.upper()
+
+print(df)
+```
+Pandas est une librairie Python puissante et flexible pour l'analyse et le traitement de données. Les DataFrames sont la structure de données de base de Pandas et sont utilisés pour stocker.
+
+## 3- Les Fondamentaux de Numpy
+
+### 3.1 Tableaux NumPy
+
+Les tableaux NumPy, également appelés ndarrays, sont des tableaux multidimensionnels homogènes qui peuvent contenir des nombres entiers ou à virgule flottante. Vous pouvez créer un tableau NumPy en utilisant la fonction array() de NumPy et en passant une liste Python comme argument.
+
+Voici un exemple de création d'un tableau NumPy à une dimension :
+
+```{.python}
+
+import numpy as np
+
+arr1 = np.array([1, 2, 3, 4, 5])
+print(arr1)
+```
+
+Vous pouvez également créer un tableau NumPy à deux dimensions en utilisant une liste de listes Python :
+
+```{.python}
+
+arr2 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr2)
+```
+### 3.2 Indexation et tranchage
+
+Vous pouvez accéder aux éléments d'un tableau NumPy en utilisant l'indexation et le tranchage. L'indexation utilise des indices entiers pour accéder à des éléments spécifiques, tandis que le tranchage utilise des intervalles pour accéder à des plages d'éléments.
+
+Voici un exemple d'indexation et de tranchage d'un tableau NumPy à une dimension :
+
+```{.python}
+
+arr1 = np.array([1, 2, 3, 4, 5])
+print(arr1[0])  
+print(arr1[4]) 
+```
+Vous pouvez également utiliser l'indexation et le tranchage pour des tableaux NumPy à plusieurs dimensions.
+
+### 3.3 Opérations sur les tableaux
+
+NumPy prend en charge de nombreuses opérations sur les tableaux, telles que l'addition, la soustraction, la multiplication et la division. Vous pouvez également utiliser des fonctions NumPy pour effectuer des opérations telles que la somme, le produit et la moyenne.
+
+Voici un exemple d'opérations sur des tableaux NumPy :
+
+```{.python}
+
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+
+print(arr1 + arr2)  
+
+print(arr1 * arr2)  
+
+print(np.sum(arr1))  
+
+print(np.mean(arr1)) 
+```
+
+NumPy est une bibliothèque Python puissante et utile pour le calcul numérique. Elle fournit des types de données et des fonctions pour traiter des tableaux multidimensionnels de manière efficace. En utilisant des tableaux NumPy, vous pouvez effectuer des opérations numériques rapides et efficaces en Python.

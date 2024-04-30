@@ -1,0 +1,20 @@
+{
+  "about.qmd": {
+    "about.html": "42d1b876"
+  },
+  "contact.qmd": {
+    "contact.html": "d2a53422"
+  },
+  "cours.qmd": {
+    "cours.html": "a737eef2"
+  },
+  "datacamp-light-master/LICENSE.md": {
+    "LICENSE.html": "5effffca"
+  },
+  "exercices.qmd": {
+    "exercices.html": "13ff647c"
+  },
+  "index.qmd": {
+    "index.html": "ed135ac8"
+  }
+}

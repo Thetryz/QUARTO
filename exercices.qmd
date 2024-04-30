@@ -1,0 +1,5 @@
+---
+title: "EXERCICES"
+---
+
+<iframe src="example.html" width="1200px" height="600px"></iframe>
