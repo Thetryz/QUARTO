@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>DataCamp Light | Standalone example</title>
+  <link rel='shortcut icon' type='image/x-icon' href='https://www.datacamp.com/assets/favicon.ico'/>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+
+    [data-datacamp-exercise] {
+        visibility: hidden;
+      }
+  </style>
+
+  <script async src="https://cdn.datacamp.com/dcl-react-dev.js.gz"></script>
+</head>
+<body>
+  <div class="exercise">
+    <div class="title">
+      <h2>Création et manipulation de DataFrame avec Pandas</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="python" data-height="350">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+        import pandas as pd
+
+        # Création d'un DataFrame
+        data = {
+          'Nom': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+          'Âge': [24, 27, 22, 32, 29],
+          'Score': [85, 62, 74, 90, 88]
+      }
+        # Afficher le DataFrame
+      
+      </code>
+      <code data-type="solution">
+        import pandas as pd
+
+        # Création d'un DataFrame
+        data = {
+            'Nom': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+            'Âge': [24, 27, 22, 32, 29],
+            'Score': [85, 62, 74, 90, 88]
+        }
+        df = pd.DataFrame(data)
+        
+        # Afficher le DataFrame
+        print(df)
+      </code>
+      <code data-type="sct">
+        test_object("df", undefined_msg = "Assurez-vous de définir un DataFrame `df`.", 
+        incorrect_msg = "Vérifiez la structure du DataFrame. Il doit contenir les colonnes Nom, Âge et Score avec les valeurs correctes.")
+        success_msg("Bon travail ! Vous avez créé et affiché un DataFrame avec succès.")
+      </code>
+      <div data-type="hint">Utilisez pd.DataFrame pour créer un DataFrame à partir d'un dictionnaire.</div>
+    </div>
+  </div>
+  <div class="exercise">
+    <div class="title">
+      <h2>Sélection et filtrage des données avec Pandas</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="python" data-height="350">
+      <code data-type="pre-exercise-code">
+        import pandas as pd
+      </code>
+      <code data-type="sample-code">
+        # Sélection des lignes où l'âge est supérieur à 25
+        data = {
+          'Nom': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+          'Âge': [24, 27, 22, 32, 29],
+          'Score': [85, 62, 74, 90, 88]
+      }
+        # Afficher le DataFrame filtré
+        
+      </code>
+      <code data-type="solution">
+        import pandas as pd
+
+        data = {
+            'Nom': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+            'Âge': [24, 27, 22, 32, 29],
+            'Score': [85, 62, 74, 90, 88]
+        }
+        df = pd.DataFrame(data)
+        
+        # Sélection des lignes où l'âge est supérieur à 25
+        filtered_df = df[df['Âge'] > 25]
+        
+        # Afficher le DataFrame filtré
+        print(filtered_df)
+      </code>
+      <code data-type="sct">
+        test_object("filtered_df", undefined_msg = "Assurez-vous de définir un DataFrame filtré `filtered_df`.", 
+        incorrect_msg = "Vérifiez les critères de filtrage. Le DataFrame doit contenir uniquement les lignes où l'âge est supérieur à 25.")
+        success_msg("Excellent ! Vous avez filtré les données avec succès.")
+      </code>
+      <div data-type="hint">Utilisez le filtrage booléen pour sélectionner les lignes où l'âge est supérieur à 25.</div>
+    </div>
+  </div>
+  <div class="exercise">
+    <div class="title">
+      <h2>Opérations mathématiques avec Numpy</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="python" data-height="350">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+        import numpy as np
+
+        # Création de deux tableaux Numpy
+        array1 = np.array([1, 2, 3, 4, 5])
+        array2 = np.array([6, 7, 8, 9, 10])
+        
+        # Addition des tableaux
+      
+        # Afficher le résultat
+      </code>
+      <code data-type="solution">
+        import numpy as np
+
+        # Création de deux tableaux Numpy
+        array1 = np.array([1, 2, 3, 4, 5])
+        array2 = np.array([6, 7, 8, 9, 10])
+        
+        # Addition des tableaux
+        result = array1 + array2
+        
+        # Afficher le résultat
+        print(result)
+      </code>
+      <code data-type="sct">
+        test_object("result", undefined_msg = "Assurez-vous de définir un tableau `result`.", 
+        incorrect_msg = "Vérifiez l'opération d'addition. Le résultat doit être la somme élément par élément des deux tableaux.")
+        success_msg("Bravo ! Vous avez correctement effectué l'addition des tableaux Numpy.")
+      </code>
+      <div data-type="hint">Utilisez l'opérateur + pour ajouter deux tableaux Numpy.</div>
+    </div>
+  </div>
+<div class="exercise">
+    <div class="title">
+      <h2>Calculs statistiques avec Numpy</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="python" data-height="350">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+        import numpy as np
+
+        # Création d'un tableau Numpy
+        data = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        
+        # Calcul de la moyenne
+        
+        # Calcul de la médiane
+        
+        # Afficher les résultats
+        
+      </code>
+      <code data-type="solution">
+        import numpy as np
+
+        # Création d'un tableau Numpy
+        data = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+        
+        # Calcul de la moyenne
+        mean_value = np.mean(data)
+        
+        # Calcul de la médiane
+        median_value = np.median(data)
+        
+        # Afficher les résultats
+        print("Moyenne:", mean_value)
+        print("Médiane:", median_value)
+      </code>
+      <code data-type="sct">
+        test_object("mean_value", undefined_msg = "Assurez-vous de définir `mean_value`.", 
+        incorrect_msg = "Vérifiez le calcul de la moyenne. Utilisez np.mean.")
+        test_object("median_value", undefined_msg = "Assurez-vous de définir `median_value`.", 
+        incorrect_msg = "Vérifiez le calcul de la médiane. Utilisez np.median.")
+        success_msg("Bien joué ! Vous avez correctement calculé la moyenne et la médiane.")
+      </code>
+      <div data-type="hint">Utilisez np.mean et np.median pour calculer les statistiques.</div>
+    </div>
+  </div>
+  <div class="exercise">
+    <div class="title">
+      <h2>Fusion de DataFrames avec Pandas</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="python" data-height="350">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+        import pandas as pd
+
+        # Création de deux DataFrames
+        data1 = {
+          'ID': [1, 2, 3],
+          'Nom': ['Alice', 'Bob', 'Charlie']
+      }
+        data2 = {
+        'ID': [1, 2, 4],
+        'Score': [85, 62, 90]
+      }
+        # Fusion des DataFrames sur la colonne 'ID'
+        
+        # Afficher le DataFrame fusionné
+        
+      </code>
+      <code data-type="solution">
+        import pandas as pd
+
+        # Création de deux DataFrames
+        data1 = {
+            'ID': [1, 2, 3],
+            'Nom': ['Alice', 'Bob', 'Charlie']
+        }
+        df1 = pd.DataFrame(data1)
+
+        data2 = {
+            'ID': [1, 2, 4],
+            'Score': [85, 62, 90]
+        }
+        df2 = pd.DataFrame(data2)
+        
+        # Fusion des DataFrames sur la colonne 'ID'
+        merged_df = pd.merge(df1, df2, on='ID', how='inner')
+        
+        # Afficher le DataFrame fusionné
+        print(merged_df)
+      </code>
+      <code data-type="sct">
+        test_object("merged_df", undefined_msg = "Assurez-vous de définir le DataFrame fusionné `merged_df`.", 
+        incorrect_msg = "Vérifiez l'opération de fusion. Le DataFrame doit contenir les colonnes ID, Nom et Score pour les IDs communs.")
+        success_msg("Super ! Vous avez réussi à fusionner les DataFrames.")
+      </code>
+      <div data-type="hint">Utilisez pd.merge pour fusionner les DataFrames.</div>
+    </div>
+  </div>
